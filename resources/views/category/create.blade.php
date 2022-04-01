@@ -30,7 +30,7 @@
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span><br>
                     @endif
-                    <button type="submit" class="btn btn-info mt-2">Submit</button>
+                    <button type="submit" class="btn btn-info mt-2 btn-sm"><i class="fa fa-save"></i> Submit</button>
                   </div>
                 </div>
               </form>

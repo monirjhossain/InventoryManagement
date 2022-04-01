@@ -19,17 +19,17 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Edit Category</h3>
+                <h3 class="card-title">Edit Size</h3>
               </div>
-              <form role="form" action="{{ route('categories.update',$category->id) }}" method="POST">
+              <form role="form" action="{{ route('sizes.update',$size->id) }}" method="POST">
                 @csrf
                 @method("PUT")
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputName">Cateory Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter Category Name" value="{{ $category->name }}">
-                    @if ($errors->has('name'))
-                        <span class="text-danger">{{ $errors->first('name') }}</span><br>
+                    <label for="exampleInputName">Size</label>
+                    <input type="text" class="form-control" name="size" placeholder="Enter Size Name" value="{{ $size->size }}">
+                    @if ($errors->has('size'))
+                        <span class="text-danger">{{ $errors->first('size') }}</span><br>
                     @endif
                     <button type="submit" class="btn btn-info mt-2 btn-sm"><i class="fa fa-save"></i> Submit</button>
                   </div>

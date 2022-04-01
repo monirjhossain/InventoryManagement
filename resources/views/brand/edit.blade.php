@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Category Edit Page</h1>
+            <h1 class="m-0">Brand Edit Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -21,13 +21,13 @@
               <div class="card-header">
                 <h3 class="card-title">Edit Category</h3>
               </div>
-              <form role="form" action="{{ route('categories.update',$category->id) }}" method="POST">
+              <form role="form" action="{{ route('brands.update',$brand->id) }}" method="POST">
                 @csrf
                 @method("PUT")
                 <div class="card-body">
                   <div class="form-group">
                     <label for="exampleInputName">Cateory Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter Category Name" value="{{ $category->name }}">
+                    <input type="text" class="form-control" name="name" placeholder="Enter Category Name" value="{{ $brand->name }}">
                     @if ($errors->has('name'))
                         <span class="text-danger">{{ $errors->first('name') }}</span><br>
                     @endif
