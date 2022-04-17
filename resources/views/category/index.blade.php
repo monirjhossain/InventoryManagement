@@ -18,6 +18,9 @@
             <div class="card card-primary card-outline">
               <div class="card-body">
                 <a href="{{ route('categories.create') }}" class="btn btn-sm btn-primary mb-3"><i class="fa fa-plus"></i> Add Category</a>
+
+                  <example-component></example-component> 
+
                 <table class="table table-bordered datatable">
                 <thead>
                     <tr>
@@ -39,7 +42,6 @@
                                  <form id="category-delete-{{ $category->id }}" action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                     @csrf
                                     @method("DELETE")
-
                                  </form>
                                 </td>
                             </tr>

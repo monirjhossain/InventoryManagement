@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use Illuminate\Support\Facades\File;
+// use Image;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
@@ -38,10 +40,21 @@ class BrandController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|min:2|max:20|unique:brands',
+            'photo' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
+        
+        if($request->hasfile('photo'))
+        {
+            $file = $request->file('photo');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/brands/', $filename);
+        }
 
         $brand = new Brand();
         $brand->name = $request->name;
+        $brand->photo = $filename;
+
         $brand->save();
         
         flash('Brand Created Successfully')->success();
@@ -86,6 +99,21 @@ class BrandController extends Controller
 
         $brand = Brand::findOrFail($id);
         $brand->name = $request->name;
+
+        if($request->hasfile('photo'))
+        {
+            $destination = 'uploads/brands/'. $brand->photo;
+            if(File::exists($destination)){
+                File::delete($destination);
+            }
+
+            $file = $request->file('photo');
+            $extenstion = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extenstion;
+            $file->move('uploads/brands/', $filename);
+            $brand->photo = $filename;
+        }
+
         $brand->save();
 
         flash('Brand Updated Successfully!')->success();
@@ -101,6 +129,14 @@ class BrandController extends Controller
     public function destroy($id)
     {
         $brand = Brand::findOrFail($id);
+
+        $destination = 'uploads/brands/'.$brand->photo;
+        
+        if(File::exists($destination)){
+            File::delete($destination);
+            
+        }
+
         $brand->delete();
 
         flash('Brand Deleted Successfully!')->success();

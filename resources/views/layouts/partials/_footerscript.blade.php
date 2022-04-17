@@ -1,5 +1,5 @@
 <!-- REQUIRED SCRIPTS -->
-
+<script src="{{ mix('js/app.js') }}" defer></script>
 <!-- jQuery -->
 <script src="{{ asset('admin/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->

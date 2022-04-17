@@ -22,6 +22,7 @@
                 <thead>
                     <tr>
                         <th>SL</th>
+                        <th>Image</th>
                         <th>Name</th>
                         <th>Action</th>
                     </tr>
@@ -31,6 +32,7 @@
                         @foreach($brands as $key=>$brand)
                             <tr>
                                 <td>{{ ++$key }}</td>
+                                <td><img src="{{ asset('uploads/brands/'.$brand->photo) }}" width="100px"> </td>
                                 <td>{{ $brand->name ?? '' }}</td>
                                 <td>
                                  <a href="{{ route('brands.edit', $brand->id) }}" class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> Edit</a>   

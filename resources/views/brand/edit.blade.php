@@ -26,11 +26,16 @@
                 @method("PUT")
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputName">Cateory Name</label>
-                    <input type="text" class="form-control" name="name" placeholder="Enter Category Name" value="{{ $brand->name }}">
+                    <label for="exampleInputName">Brand Name</label>
+                    <input type="text" class="form-control mb-2" name="name" placeholder="Enter Category Name" value="{{ $brand->name }}">
                     @if ($errors->has('name'))
-                        <span class="text-danger">{{ $errors->first('name') }}</span><br>
+                        <span class="text-danger">{{ $errors->first('name') }}</span>
                     @endif
+                    <input type="file" class="form-control mb-2" name="photo">
+                    @if ($errors->has('photo'))
+                        <span class="text-danger">{{ $errors->first('photo') }}</span><br>
+                    @endif
+                    <img src="{{ asset('uploads/brands/'.$brand->photo) }}" width="100px" class="mt-2"><br>
                     <button type="submit" class="btn btn-info mt-2 btn-sm"><i class="fa fa-save"></i> Submit</button>
                   </div>
                 </div>

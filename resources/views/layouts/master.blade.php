@@ -15,12 +15,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 @include('layouts.partials._navber')
 
-
-
 @include('layouts.partials._sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" id="app">
     @include('flash::message')
     
     @yield('content')
