@@ -32,7 +32,7 @@
                         @foreach($brands as $key=>$brand)
                             <tr>
                                 <td>{{ ++$key }}</td>
-                                <td><img src="{{ asset('uploads/brands/'.$brand->photo) }}" width="100px"> </td>
+                                <td><img src="{{ asset('uploads/brands/'.$brand->photo) }}" width="50px"></td>
                                 <td>{{ $brand->name ?? '' }}</td>
                                 <td>
                                  <a href="{{ route('brands.edit', $brand->id) }}" class="btn btn-sm btn-info"> <i class="fa fa-edit"></i> Edit</a>   

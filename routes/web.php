@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizesController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,4 +32,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::resource('brands', BrandController::class);
     //Size Routing
     Route::resource('sizes', SizesController::class);
+    //Product Routing
+    Route::resource('products', ProductController::class);
 });

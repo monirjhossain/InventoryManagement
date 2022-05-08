@@ -10,4 +10,8 @@ class Brand extends Model
     use HasFactory;
 
     protected $fillable = ['name','photo'];
+
+    public function product(){
+        return $this->HasMany('App\Product');
+    }
 }
