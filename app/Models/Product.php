@@ -23,8 +23,8 @@ class Product extends Model
         'description',
     ];
     //Const
-    public const STATUS_ACTIVE = 1;
-    public const STATUS_INACTIVE = 2;
+    // public const STATUS_ACTIVE = 1;
+    // public const STATUS_INACTIVE = 2;
 
     public function user(){
         return $this->belongsTo(User::class, 'user_id','id'); //user_id
